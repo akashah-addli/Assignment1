@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Digital Influence: A Career in Social Media Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #87CEEB 0%, #E0F6FF 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1E90FF;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1E90FF;
+        }
+
+        /* Main Content Styles */
+        main {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .page {
+            display: none;
+            padding: 3rem;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+            color: white;
+            margin: -3rem -3rem 3rem -3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: #1E90FF;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #87CEEB;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #2d3436;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #636e72;
+        }
+
+        .career-image {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        /* Steps List Styles */
+        .steps-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            background: #f8f9fa;
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #1E90FF;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .steps-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -15px;
+            top: 20px;
+            background: #1E90FF;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: #2d3436;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Table Styles */
+        .resources-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .resources-table th {
+            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .resources-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .resources-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .resources-table a {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .resources-table a:hover {
+            color: #4682B4;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Contact Styles */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1E90FF;
+            margin: 1.5rem auto;
+            display: block;
+            box-shadow: 0 5px 20px rgba(30, 144, 255, 0.3);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            background: #1E90FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .contact-text {
+            color: #2d3436;
+            font-weight: 500;
+        }
+
+        .contact-name {
+            font-size: 2.5rem;
+            color: #1E90FF;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Navigation Buttons */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .nav-button-prev::before {
+            content: "← ";
+        }
+
+        .nav-button-next::after {
+            content: " →";
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .page {
+                padding: 2rem 1rem;
+            }
+
+            .resources-table {
+                font-size: 0.9rem;
+            }
+
+            .resources-table th,
+            .resources-table td {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+           
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showPage('steps')">Step-by-Step Guide</a></li>
+                <li><a href="#" onclick="showPage('resources')">Inspiration & Resources</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Homepage -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>Building Digital Influence</h1>
+                <p>Your comprehensive guide to achieving success in Social Media Management</p>
+            </div>
+            
+            <div class="content-section">
+                <h2>Welcome to Your Career Journey</h2>
+                <p>Social Media Management is one of the most dynamic and exciting career paths in today's digital landscape. As businesses increasingly recognize the power of social media to connect with their audiences, the demand for skilled social media managers continues to grow exponentially.</p>
+                
+                <img src="https://www.organsbeauty.com/wp-content/uploads/2024/01/Pixels-of-Pleasure-The-Influence-and-Art-of-Enhancing-Digital-Environments-940x560.jpg" class="career-image">
+                
+                <h3>What is Social Media Management?</h3>
+                <p>Social Media Management involves creating, curating, and managing content across various social media platforms to build brand awareness, engage audiences, and drive business growth. It's a field that combines creativity, strategy, analytics, and communication skills.</p>
+                
+                <h3>Why Choose This Career?</h3>
+                <p>The world of social media is constantly evolving, offering endless opportunities for creativity and professional growth. As a social media manager, you'll have the chance to shape brand narratives, connect with diverse audiences, and make a real impact on business success. The field offers flexibility, creativity, and the opportunity to work with cutting-edge digital tools and trends.</p>
+                
+                <h3>Career Prospects</h3>
+                <p>The social media management field offers diverse career paths, from working as a freelance consultant to joining major corporations or agencies. With experience, you can advance to roles such as Social Media Director, Digital Marketing Manager, or even start your own social media agency.</p>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div class="page-navigation">
+                <button class="nav-button" disabled>Previous</button>
+                <button class="nav-button nav-button-next" onclick="navigateToPage('steps')">Next: Step-by-Step Guide</button>
+            </div>
+        </div>
+
+        <!-- Steps Page -->
+        <div id="steps" class="page">
+            <h1>Step-by-Step Guide to Success</h1>
+            <p>Follow this comprehensive roadmap to build your career in social media management:</p>
+            
+            <ol class="steps-list">
+                <li>
+                    <div class="step-title">Build a Strong Foundation</div>
+                    <p>Start by understanding the basics of digital marketing, social media platforms, and content creation. Take online courses and earn certifications from platforms like Google, Facebook, and HubSpot.</p>
+                </li>
+                <li>
+                    <div class="step-title">Develop Your Personal Brand</div>
+                    <p>Create and manage your own social media presence across multiple platforms. This serves as your portfolio and demonstrates your skills to potential employers or clients.</p>
+                </li>
+                <li>
+                    <div class="step-title">Learn Essential Tools</div>
+                    <p>Master social media management tools like Hootsuite, Buffer, Canva, Adobe Creative Suite, and analytics platforms. These tools are essential for professional social media management.</p>
+                </li>
+                <li>
+                    <div class="step-title">Gain Practical Experience</div>
+                    <p>Start by managing social media for local businesses, non-profits, or internships. Volunteer work and freelance projects help build your portfolio and experience.</p>
+                </li>
+                <li>
+                    <div class="step-title">Specialize in Your Niche</div>
+                    <p>Choose a specific industry or type of social media management (B2B, e-commerce, influencer marketing, etc.) to become an expert in that area.</p>
+                </li>
+                <li>
+                    <div class="step-title">Build a Professional Network</div>
+                    <p>Connect with other professionals in the industry through LinkedIn, attend digital marketing conferences, and join social media management communities.</p>
+                </li>
+                <li>
+                    <div class="step-title">Stay Current with Trends</div>
+                    <p>The social media landscape changes rapidly. Follow industry blogs, attend webinars, and continuously update your skills to stay ahead of the curve.</p>
+                </li>
+                <li>
+                    <div class="step-title">Pursue Advanced Certifications</div>
+                    <p>Obtain advanced certifications in areas like Facebook Ads, Google Analytics, content marketing, and social media strategy to enhance your credibility.</p>
+                </li>
+            </ol>
+            
+            <!-- Navigation Buttons -->
+            <div class="page-navigation">
+                <button class="nav-button nav-button-prev" onclick="navigateToPage('home')">Previous: Home</button>
+                <button class="nav-button nav-button-next" onclick="navigateToPage('resources')">Next: Inspiration & Resources</button>
+            </div>
+        </div>
+
+        <!-- Resources Page -->
+        <div id="resources" class="page">
+            <h1>Inspiration & Resources</h1>
+            <p>Learn from the best in the industry and access valuable resources to accelerate your career growth:</p>
+            
+            <h2>Influential Figures in Social Media Management</h2>
+            <table class="resources-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Specialty</th>
+                        <th>Website/Profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gary Vaynerchuk</td>
+                        <td>CEO of VaynerMedia</td>
+                        <td>Social Media Strategy & Personal Branding</td>
+                        <td><a href="https://www.garyvaynerchuk.com" target="_blank">garyvaynerchuk.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Mari Smith</td>
+                        <td>Facebook Marketing Expert</td>
+                        <td>Facebook & Instagram Marketing</td>
+                        <td><a href="https://www.marismith.com" target="_blank">marismith.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Neil Patel</td>
+                        <td>Digital Marketing Expert</td>
+                        <td>Content Marketing & SEO</td>
+                        <td><a href="https://neilpatel.com" target="_blank">neilpatel.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Amy Porterfield</td>
+                        <td>Online Marketing Expert</td>
+                        <td>Course Creation & Social Media</td>
+                        <td><a href="https://www.amyporterfield.com" target="_blank">amyporterfield.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Jasmine Star</td>
+                        <td>Social Media Strategist</td>
+                        <td>Instagram Marketing for Small Business</td>
+                        <td><a href="https://www.jasminestar.com" target="_blank">jasminestar.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Social Media Examiner</td>
+                        <td>Industry Publication</td>
+                        <td>Social Media News & Insights</td>
+                        <td><a href="https://www.socialmediaexaminer.com" target="_blank">socialmediaexaminer.com</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2>Essential Learning Resources</h2>
+            <p>Here are some valuable resources to help you on your journey:</p>
+            
+            <h3>Online Learning Platforms</h3>
+            <p>Coursera, Udemy, and LinkedIn Learning offer comprehensive social media marketing courses. Many are taught by industry experts and provide certificates upon completion.</p>
+            
+            <h3>Industry Blogs and Publications</h3>
+            <p>Stay updated with the latest trends by following Social Media Today, Buffer Blog, Hootsuite Blog, and Sprout Social Insights.</p>
+            
+            <h3>Professional Communities</h3>
+            <p>Join Facebook groups like "Social Media Managers" and LinkedIn groups focused on digital marketing to network and learn from peers.</p>
+            
+            <!-- Navigation Buttons -->
+            <div class="page-navigation">
+                <button class="nav-button nav-button-prev" onclick="navigateToPage('steps')">Previous: Step-by-Step Guide</button>
+                <button class="nav-button nav-button-next" onclick="navigateToPage('contact')">Next: Contact</button>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <div class="contact-container">
+                <h1>Contact Me</h1>
+                <p>Get in touch to discuss social media management opportunities and collaborations.</p>
+                
+                <img src="https://scontent-sin11-1.xx.fbcdn.net/v/t39.30808-6/498246917_1363322258123188_4500826000240322674_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=qToleEg3L9oQ7kNvwFujw8K&_nc_oc=AdlF5uX3jbMO85cAq5ji5oCNkVwzvA9IlgoaWsCQrmb1aWIHdQC4YinFCYe3mOlbtdY&_nc_zt=23&_nc_ht=scontent-sin11-1.xx&_nc_gid=zEujPFiEo-lz-4aHuHwYtA&oh=00_AfIOnzDiQ1OP9Rhug4Guf1rBVwLAaAXRuuNYEXS3z7-m-g&oe=682DCBFD" alt="Akashah Profile Photo" class="profile-image">
+                
+                <div class="contact-name">Akashah Addli</div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">👤</div>
+                        <div class="contact-text">Akashah</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">012-916 0441</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🎓</div>
+                        <div class="contact-text">SMM30503 - Web Design & Development </div>
+                    </div>
+                </div>
+                
+                <h3>About Me</h3>
+                <p>My name is Muhammad Akashah Bin Addli and my matric no is 211421124 from Universiti Malaysia Perlis(UniMAP). Im studying New Media Communication and hope to be a good digital Influencer.</p>
+                
+                <!-- Navigation Buttons -->
+                <div class="page-navigation">
+                    <button class="nav-button nav-button-prev" onclick="navigateToPage('resources')">Previous: Inspiration & Resources</button>
+                    <button class="nav-button nav-button-next" onclick="navigateToPage('home')">Back to Home</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy;2025 Akashah Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function navigateToPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update top navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            // Find and activate the corresponding nav link
+            const pageOrder = ['home', 'steps', 'resources', 'contact'];
+            const currentIndex = pageOrder.indexOf(pageId);
+            if (currentIndex !== -1) {
+                navLinks[currentIndex].classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
